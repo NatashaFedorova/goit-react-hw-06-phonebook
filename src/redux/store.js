@@ -17,6 +17,7 @@ import { filterReducer } from './filterSlice';
 const persistConfig = {
   key: 'phoheBook',
   storage,
+  // blacklist: ['filter'],
 };
 
 const persistedReducer = persistReducer(
@@ -28,9 +29,7 @@ const persistedReducer = persistReducer(
 );
 
 export const store = configureStore({
-  reducer: {
-    phoneBook: persistedReducer,
-  },
+  reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
